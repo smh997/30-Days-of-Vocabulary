@@ -1,0 +1,128 @@
+<resources>
+    <string name="app_name">30 Days Of Vocabulary</string>
+
+    <string name="adjective">adjective</string>
+    <string name="noun">noun</string>
+    <string name="verb">verb</string>
+
+    <string name="spell1">Vivacious</string>
+    <string name="definition1">Full of life and energy; lively.</string>
+    <string name="example1">She is a vivacious and happy person who lights up a room.</string>
+
+    <string name="spell2">Satisfaction</string>
+    <string name="definition2">The feeling of happiness when you get what you want or need.</string>
+    <string name="example2">His new car gave him great satisfaction.</string>
+
+    <string name="spell3">Giggle</string>
+    <string name="definition3">To laugh in a quiet or child-like way.</string>
+    <string name="example3">She was giggling because the joke made her laugh.</string>
+
+    <string name="spell4">Captivate</string>
+    <string name="definition4">To attract and hold the interest or attention of someone.</string>
+    <string name="example4">Her singing captivated the audience.</string>
+
+    <string name="spell5">Witty</string>
+    <string name="definition5">Someone who is witty is intelligent and can make funny remarks quickly.</string>
+    <string name="example5">He was witty and very charming.</string>
+
+    <string name="spell6">Inventive</string>
+    <string name="definition6">Being good at thinking of new ideas or making new things.</string>
+    <string name="example6">Her inventive approach to problem solving impressed her professors.</string>
+
+    <string name="spell7">Determinant</string>
+    <string name="definition7">Something that influences or causes a situation.</string>
+    <string name="example7">Your level of commitment will be a major determinant of your success.</string>
+
+    <string name="spell8">Gallantry</string>
+    <string name="definition8">Courageous behavior, especially in battle.</string>
+    <string name="example8">The soldier was awarded for his gallantry in the field.</string>
+
+    <string name="spell9">Hope</string>
+    <string name="definition9">To desire or wish for something to happen.</string>
+    <string name="example9">I hope to see you again.</string>
+
+    <string name="spell10">Repose</string>
+    <string name="definition10">A state of rest or relaxation.</string>
+    <string name="example10">After a long day at work, she sought repose in her comfortable bed.</string>
+
+    <string name="spell11">Hospitality</string>
+    <string name="definition11">The friendly and helpful behavior towards guests.</string>
+    <string name="example11">They showed great hospitality to their guests by providing delicious food and comfortable accommodation.</string>
+
+    <string name="spell12">Elation</string>
+    <string name="definition12">A feeling of extreme happiness or excitement.</string>
+    <string name="example12">Winning the lottery filled her with elation.</string>
+
+    <string name="spell13">Pleasing</string>
+    <string name="definition13">Giving enjoyment or satisfaction.</string>
+    <string name="example13">The music was very pleasing to the ears.</string>
+
+    <string name="spell14">Stylish</string>
+    <string name="definition14">Having a fashionable and attractive appearance or way of doing things.</string>
+    <string name="example14">She looked stylish in her new dress.</string>
+
+    <string name="spell15">Gaiety</string>
+    <string name="definition15">The state of being happy and excited, often in a social setting.</string>
+    <string name="example15">Everyone was in a state of gaiety during the holiday party.</string>
+
+    <string name="spell16">Elegant</string>
+    <string name="definition16">Beautiful and stylish in a way that seems graceful or sophisticated.</string>
+    <string name="example16">She wore an elegant dress to the party.</string>
+
+    <string name="spell17">Vote</string>
+    <string name="definition17">A formal expression of choice or decision, typically in an election or meeting.</string>
+    <string name="example17">Everyone has the right to vote in the election.</string>
+
+    <string name="spell18">Dirty</string>
+    <string name="definition18">Not clean.</string>
+    <string name="example18">I need to clean my dirty shoes.</string>
+
+    <string name="spell19">Bottle</string>
+    <string name="definition19">A container with a narrow neck to hold liquids.</string>
+    <string name="example19">He took a sip from his water bottle.</string>
+
+    <string name="spell20">Private</string>
+    <string name="definition20">Belonging to or for a single person or group and not for others to know or use.</string>
+    <string name="example20">This is my private diary, please don't read it.</string>
+
+    <string name="spell21">Station</string>
+    <string name="definition21">A place where trains stop for people to get on or off.</string>
+    <string name="example21">I'll meet you at the train station.</string>
+
+    <string name="spell22">Modern</string>
+    <string name="definition22">Of or related to the present or most recent times, not old.</string>
+    <string name="example22">She enjoys modern art more than classic art.</string>
+
+    <string name="spell23">Reflect</string>
+    <string name="definition23">To throw back heat, light or sound without absorbing it.</string>
+    <string name="example23">The mirror reflects the light.</string>
+
+    <string name="spell24">Divide</string>
+    <string name="definition24">To separate into parts or groups.</string>
+    <string name="example24">She divided the cake into eight pieces.</string>
+
+    <string name="spell25">Exchange</string>
+    <string name="definition25">To give something to someone and receive something in return.</string>
+    <string name="example25">I will exchange my apple for your orange.</string>
+
+    <string name="spell26">Route</string>
+    <string name="definition26">A way or path from one place to another.</string>
+    <string name="example26">We decided to take the scenic route to the beach.</string>
+
+    <string name="spell27">Strategy</string>
+    <string name="definition27">A planned way to do something to achieve a specific goal.</string>
+    <string name="example27">Her strategy to win the game was to score early.</string>
+
+    <string name="spell28">Rush</string>
+    <string name="definition28">Quick and often uncontrolled movement of people.</string>
+    <string name="example28">There was a mad rush for the exit when the fire alarm sounded.</string>
+
+    <string name="spell29">Wrap</string>
+    <string name="definition29">To cover something by placing material around it.</string>
+    <string name="example29">She wrapped the gift in colorful paper.</string>
+
+    <string name="spell30">Cute</string>
+    <string name="definition30">Attractive in a charming or endearing way.</string>
+    <string name="example30">She has a cute kitten.</string>
+
+</resources>
