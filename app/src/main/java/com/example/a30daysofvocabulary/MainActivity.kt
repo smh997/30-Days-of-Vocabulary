@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -30,14 +31,18 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun _30DaysOfVocabularyApp(modifier: Modifier = Modifier) {
-    /* TODO */
+    Scaffold (
+        
+    ){innerPadding ->
+        VocabularyList(innerPadding = innerPadding)
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun AppPreview() {
     _30DaysOfVocabularyTheme {
-        /* TODO */
+        _30DaysOfVocabularyApp()
     }
 }
 
@@ -45,6 +50,6 @@ fun AppPreview() {
 @Composable
 fun DarkThemeAppPreview() {
     _30DaysOfVocabularyTheme (darkTheme = true){
-        /* TODO */
+        _30DaysOfVocabularyApp()
     }
 }

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">30 Days Of Vocabulary</string>
 
+    <string name="day">Day %1$d</string>
+
     <string name="adjective">adjective</string>
     <string name="noun">noun</string>
     <string name="verb">verb</string>
@@ -83,11 +85,11 @@
 
     <string name="spell20">Private</string>
     <string name="definition20">Belonging to or for a single person or group and not for others to know or use.</string>
-    <string name="example20">This is my private diary, please don't read it.</string>
+    <string name="example20">This is my private diary, please don\'t read it.</string>
 
     <string name="spell21">Station</string>
     <string name="definition21">A place where trains stop for people to get on or off.</string>
-    <string name="example21">I'll meet you at the train station.</string>
+    <string name="example21">I\'ll meet you at the train station.</string>
 
     <string name="spell22">Modern</string>
     <string name="definition22">Of or related to the present or most recent times, not old.</string>
