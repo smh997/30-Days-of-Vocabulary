@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
@@ -45,8 +46,8 @@ fun VocabularyListItem(word: Word, index: Int, modifier: Modifier = Modifier) {
     Card (
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
-            .padding(16.dp)
+            .clip(MaterialTheme.shapes.medium)
+            .padding(dimensionResource(id = R.dimen.padding_medium))
     ){
         Column (
             modifier = Modifier
@@ -56,14 +57,18 @@ fun VocabularyListItem(word: Word, index: Int, modifier: Modifier = Modifier) {
             Column (
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 16.dp, top = 8.dp, end = 16.dp)
+                    .padding(
+                        start = dimensionResource(id = R.dimen.padding_medium),
+                        top = dimensionResource(id = R.dimen.padding_small),
+                        end = dimensionResource(id = R.dimen.padding_medium)
+                    )
             ){
                 Text(
                     text = stringResource(id = R.string.day, index + 1),
                     style = MaterialTheme.typography.titleSmall,
                     fontStyle = FontStyle.Italic
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
                 Text(
                     text = stringResource(id = word.spell),
                     style = MaterialTheme.typography.titleLarge,
@@ -75,23 +80,19 @@ fun VocabularyListItem(word: Word, index: Int, modifier: Modifier = Modifier) {
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .padding(8.dp)
-                    .clip(
-                        CutCornerShape(
-                            0.dp,
-                            32.dp,
-                            0.dp,
-                            32.dp
-                        )
-                    )
-
+                    .padding(dimensionResource(id = R.dimen.padding_small))
+                    .clip(MaterialTheme.shapes.small)
 
             )
 //            Spacer(modifier = Modifier.height(16.dp))
             Column (
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 16.dp, top = 8.dp, end = 16.dp)
+                    .padding(
+                        start = dimensionResource(id = R.dimen.padding_medium),
+                        top = dimensionResource(id = R.dimen.padding_small),
+                        end = dimensionResource(id = R.dimen.padding_medium)
+                    )
             ){
                 Text(
                     text = stringResource(id = word.definition),
@@ -102,7 +103,7 @@ fun VocabularyListItem(word: Word, index: Int, modifier: Modifier = Modifier) {
                     style = MaterialTheme.typography.bodyMedium,
                     fontStyle = FontStyle.Italic,
                     modifier = Modifier
-                        .padding(8.dp)
+                        .padding(dimensionResource(id = R.dimen.padding_small))
                 )
             }
         }
@@ -117,4 +118,10 @@ fun VocabularyCardPreview() {
         VocabularyListItem(word = Dictionary.words[0], 0)
     }
 }
-
+@Preview(showBackground = true)
+@Composable
+fun DarkThemeVocabularyCardPreview() {
+    _30DaysOfVocabularyTheme (darkTheme = true){
+        VocabularyListItem(word = Dictionary.words[0], 0)
+    }
+}
