@@ -1,6 +1,16 @@
 package com.example.a30daysofvocabulary
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -9,12 +19,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.shape.CutCornerShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -24,35 +36,59 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.a30daysofvocabulary.model.Dictionary
 import com.example.a30daysofvocabulary.model.Word
 import com.example.a30daysofvocabulary.ui.theme._30DaysOfVocabularyTheme
 
 @Composable
 fun VocabularyList(innerPadding: PaddingValues, modifier: Modifier = Modifier) {
-    LazyColumn(
-        contentPadding = innerPadding,
-        modifier = modifier
-    ){
-        itemsIndexed(Dictionary.words){index, word ->
-            VocabularyListItem(word = word, index)
+    val state = remember {
+        MutableTransitionState(false).apply {
+            targetState = true
+        }
+    }
+    AnimatedVisibility(
+        visibleState = state,
+        enter = fadeIn(),
+        exit = fadeOut()
+    ) {
+        LazyColumn(
+            contentPadding = innerPadding,
+            modifier = modifier
+                .fillMaxWidth()
+        ) {
+            itemsIndexed(Dictionary.words) { index, word ->
+                VocabularyListItem(word = word, index)
+            }
         }
     }
 }
 
 @Composable
 fun VocabularyListItem(word: Word, index: Int, modifier: Modifier = Modifier) {
+    var expanded by remember { mutableStateOf(false) }
+    val color by animateColorAsState(
+        targetValue = if (expanded) MaterialTheme.colorScheme.tertiaryContainer
+        else MaterialTheme.colorScheme.primaryContainer
+    )
     Card (
         modifier = modifier
             .fillMaxWidth()
             .clip(MaterialTheme.shapes.medium)
             .padding(dimensionResource(id = R.dimen.padding_medium))
+            .clickable { expanded = !expanded }
+            .animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioMediumBouncy,
+                    stiffness = Spring.StiffnessLow
+                )
+            )
     ){
         Column (
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .background(color)
+                .padding(dimensionResource(id = R.dimen.padding_small))
         ){
             Column (
                 modifier = Modifier
@@ -65,13 +101,13 @@ fun VocabularyListItem(word: Word, index: Int, modifier: Modifier = Modifier) {
             ){
                 Text(
                     text = stringResource(id = R.string.day, index + 1),
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.titleMedium,
                     fontStyle = FontStyle.Italic
                 )
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
                 Text(
                     text = stringResource(id = word.spell),
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -80,31 +116,35 @@ fun VocabularyListItem(word: Word, index: Int, modifier: Modifier = Modifier) {
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .padding(dimensionResource(id = R.dimen.padding_small))
+                    .padding(
+                        start = dimensionResource(id = R.dimen.padding_small),
+                        top = dimensionResource(id = R.dimen.padding_small),
+                        end = dimensionResource(id = R.dimen.padding_small),
+                        bottom = dimensionResource(id = R.dimen.padding_medium)
+                    )
                     .clip(MaterialTheme.shapes.small)
 
             )
-//            Spacer(modifier = Modifier.height(16.dp))
-            Column (
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(
-                        start = dimensionResource(id = R.dimen.padding_medium),
-                        top = dimensionResource(id = R.dimen.padding_small),
-                        end = dimensionResource(id = R.dimen.padding_medium)
-                    )
-            ){
-                Text(
-                    text = stringResource(id = word.definition),
-                    style = MaterialTheme.typography.bodyLarge
-                )
-                Text(
-                    text = stringResource(id = word.example),
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontStyle = FontStyle.Italic,
+            if(expanded){
+                Column (
                     modifier = Modifier
-                        .padding(dimensionResource(id = R.dimen.padding_small))
-                )
+                        .fillMaxWidth()
+                        .padding(
+                            horizontal = dimensionResource(id = R.dimen.padding_medium)
+                        )
+                ){
+                    Text(
+                        text = stringResource(id = word.definition),
+                        style = MaterialTheme.typography.titleLarge
+                    )
+                    Text(
+                        text = stringResource(id = word.example),
+                        style = MaterialTheme.typography.bodyLarge,
+                        fontStyle = FontStyle.Italic,
+                        modifier = Modifier
+                            .padding(dimensionResource(id = R.dimen.padding_small))
+                    )
+                }
             }
         }
     }
